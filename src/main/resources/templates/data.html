@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Admin | Logs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="dataTables.bootstrap4.css">
+<link rel="stylesheet" href="css/adminlte.min.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
+	rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+	<section class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+					<h1 th:text="${properties.appName}">Relatório de Logs da
+						aplicação</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="content">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-header">
+					<h3 class="card-title">Relatório de Logs da aplicação</h3>
+				</div>
+				<div class="row">
+					<div class="card-body">
+
+						<div class="form-group">
+							<label>Tipo Log</label> <select id="tipoLog"
+								class="form-control select2" style="width: 7%;">
+								<option>Selecione um</option>
+								<option value="">TODOS</option>
+								<option>INFO</option>
+								<option>ERROR</option>
+								<option>DEBUG</option>
+								<option>WARN</option>
+								<option>FATAL</option>
+							</select> </br>
+
+							<div class="mailbox-controls with-border">
+								<div class="btn-group">
+									<!-- 										<button th:href="@{/delete}"  type="button" class="btn btn-default btn-sm" -->
+									<!-- 											data-toggle="tooltip" data-container="body" title="Delete"> -->
+									<!-- 											<i class="fa fa-trash-o"></i> -->
+									<!-- 										</button> -->
+									<button onclick="getConfirmation()" type="button"
+										class="btn btn-default btn-sm" data-toggle="tooltip"
+										data-container="body" title="Delete">
+										<i class="fa fa-trash-o"></i>
+									</button>
+									<a th:href="@{/download}" type="button"
+										class="btn btn-default btn-sm" data-toggle="tooltip"
+										title="Download"> <i class="fa fa-arrow-down"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<table id="example1" class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Linha</th>
+									<th>Logs</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="log: ${logs}">
+									<td th:text="${log.numberLine}">2023-03-14 22:58:53.377</td>
+									<td th:text="${log.mensagem}">2023-03-14 22:58:53.377</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<th>Linha</th>
+									<th>Logs</th>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src="javascript/jquery/jquery.min.js"></script>
+	<script src="javascript/bootstrap.bundle.min.js"></script>
+	<script src="javascript/jquery/jquery.dataTables.js"></script>
+	<script src="javascript/jquery/dataTables.bootstrap4.js"></script>
+	<script src="javascript/jquery/jquery.slimscroll.min.js"></script>
+	<script src="javascript/fastclick.js"></script>
+	<script src="javascript/adminlte.min.js"></script>
+	<script src="javascript/demo.js"></script>
+
+	<script>
+		$(function() {
+			$("#example1").DataTable();
+			$('#example2').DataTable({
+				"paging" : true,
+				"lengthChange" : false,
+				"searching" : false,
+				"ordering" : true,
+				"info" : true,
+				"autoWidth" : false
+			});
+		});
+	</script>
+	<script>
+		$(function() {
+			$('#tipoLog').on("change", function() {
+				const tipoLog = $('#tipoLog option:selected').val();
+				window.location.href = "/logs?type=" + tipoLog;
+			});
+		});
+
+		function getConfirmation() {
+			var retVal = confirm("Deseja limpar os logs?");
+			if (retVal == true) {
+				document.write("User wants to continue!");
+				window.location.href = "/delete";
+			}
+		}
+	</script>
+</body>
+</html>
