@@ -106,3 +106,100 @@
 17/03/2023 22:35 --- INFO  --- o.a.c.c.C.[Tomcat].[localhost].[/].log --- Initializing Spring DispatcherServlet 'dispatcherServlet'
 17/03/2023 22:35 --- INFO  --- o.s.web.servlet.DispatcherServlet.initServletBean --- Initializing Servlet 'dispatcherServlet'
 17/03/2023 22:35 --- INFO  --- o.s.web.servlet.DispatcherServlet.initServletBean --- Completed initialization in 0 ms
+17/03/2023 22:56 --- INFO  --- com.prototype.ManagerLogsApplication.logStarting --- Starting ManagerLogsApplication using Java 17.0.3 on dev-monteiro with PID 14792 (/home/carlos-monteiro/desenvolvimento/manager-logs/target/classes started by carlos-monteiro in /home/carlos-monteiro/desenvolvimento/manager-logs)
+17/03/2023 22:56 --- INFO  --- com.prototype.ManagerLogsApplication.logStartupProfileInfo --- No active profile set, falling back to 1 default profile: "default"
+17/03/2023 22:56 --- INFO  --- o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo --- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+17/03/2023 22:56 --- INFO  --- o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo --- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+17/03/2023 22:56 --- INFO  --- o.s.b.w.e.tomcat.TomcatWebServer.initialize --- Tomcat initialized with port(s): 8080 (http)
+17/03/2023 22:56 --- INFO  --- o.a.catalina.core.StandardService.log --- Starting service [Tomcat]
+17/03/2023 22:56 --- INFO  --- o.a.catalina.core.StandardEngine.log --- Starting Servlet engine: [Apache Tomcat/9.0.71]
+17/03/2023 22:56 --- INFO  --- o.a.c.c.C.[Tomcat].[localhost].[/].log --- Initializing Spring embedded WebApplicationContext
+17/03/2023 22:56 --- INFO  --- o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext --- Root WebApplicationContext: initialization completed in 671 ms
+17/03/2023 22:56 --- WARN  --- o.s.b.d.a.OptionalLiveReloadServer.startServer --- Unable to start LiveReload server
+17/03/2023 22:56 --- WARN  --- o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.refresh --- Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
+17/03/2023 22:56 --- INFO  --- o.a.catalina.core.StandardService.log --- Stopping service [Tomcat]
+17/03/2023 22:56 --- INFO  --- o.s.b.a.l.ConditionEvaluationReportLoggingListener.logMessage --- 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+17/03/2023 22:56 --- ERROR --- o.s.boot.SpringApplication.reportFailure --- Application run failed
+org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181)
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:937)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.prototype.ManagerLogsApplication.main(ManagerLogsApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:229)
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:43)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178)
+	... 19 common frames omitted
+Caused by: java.lang.IllegalArgumentException: standardService.connector.startFailed
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:238)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:282)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:213)
+	... 21 common frames omitted
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1076)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:234)
+	... 23 common frames omitted
+Caused by: java.net.BindException: Endereço já em uso
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:555)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294)
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:275)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:230)
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1227)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1313)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:615)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1073)
+	... 25 common frames omitted
+17/03/2023 22:57 --- INFO  --- com.prototype.ManagerLogsApplication.logStarting --- Starting ManagerLogsApplication using Java 17.0.3 on dev-monteiro with PID 14918 (/home/carlos-monteiro/desenvolvimento/manager-logs/target/classes started by carlos-monteiro in /home/carlos-monteiro/desenvolvimento/manager-logs)
+17/03/2023 22:57 --- INFO  --- com.prototype.ManagerLogsApplication.logStartupProfileInfo --- No active profile set, falling back to 1 default profile: "default"
+17/03/2023 22:57 --- INFO  --- o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo --- Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+17/03/2023 22:57 --- INFO  --- o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor.logTo --- For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+17/03/2023 22:57 --- INFO  --- o.s.b.w.e.tomcat.TomcatWebServer.initialize --- Tomcat initialized with port(s): 8080 (http)
+17/03/2023 22:57 --- INFO  --- o.a.catalina.core.StandardService.log --- Starting service [Tomcat]
+17/03/2023 22:57 --- INFO  --- o.a.catalina.core.StandardEngine.log --- Starting Servlet engine: [Apache Tomcat/9.0.71]
+17/03/2023 22:57 --- INFO  --- o.a.c.c.C.[Tomcat].[localhost].[/].log --- Initializing Spring embedded WebApplicationContext
+17/03/2023 22:57 --- INFO  --- o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext --- Root WebApplicationContext: initialization completed in 706 ms
+17/03/2023 22:57 --- INFO  --- o.s.b.d.a.OptionalLiveReloadServer.startServer --- LiveReload server is running on port 35729
+17/03/2023 22:57 --- INFO  --- o.s.b.w.e.tomcat.TomcatWebServer.start --- Tomcat started on port(s): 8080 (http) with context path ''
+17/03/2023 22:57 --- INFO  --- com.prototype.ManagerLogsApplication.logStarted --- Started ManagerLogsApplication in 1.285 seconds (JVM running for 1.601)
+17/03/2023 22:58 --- INFO  --- o.a.c.c.C.[Tomcat].[localhost].[/].log --- Initializing Spring DispatcherServlet 'dispatcherServlet'
+17/03/2023 22:58 --- INFO  --- o.s.web.servlet.DispatcherServlet.initServletBean --- Initializing Servlet 'dispatcherServlet'
+17/03/2023 22:58 --- INFO  --- o.s.web.servlet.DispatcherServlet.initServletBean --- Completed initialization in 1 ms
+17/03/2023 22:58 --- ERROR --- com.prototype.util.FileUtil.readFile --- Index 1 out of bounds for length 1
+17/03/2023 23:00 --- INFO  --- o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener.onApplicationEvent --- Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+17/03/2023 23:00 --- INFO  --- o.a.catalina.core.StandardService.log --- Stopping service [Tomcat]
+17/03/2023 23:00 --- INFO  --- o.a.c.c.C.[Tomcat].[localhost].[/].log --- Destroying Spring FrameworkServlet 'dispatcherServlet'
+17/03/2023 23:00 --- INFO  --- com.prototype.ManagerLogsApplication.logStarting --- Starting ManagerLogsApplication using Java 17.0.3 on dev-monteiro with PID 14918 (/home/carlos-monteiro/desenvolvimento/manager-logs/target/classes started by carlos-monteiro in /home/carlos-monteiro/desenvolvimento/manager-logs)
+17/03/2023 23:00 --- INFO  --- com.prototype.ManagerLogsApplication.logStartupProfileInfo --- No active profile set, falling back to 1 default profile: "default"
+17/03/2023 23:00 --- INFO  --- o.s.b.w.e.tomcat.TomcatWebServer.initialize --- Tomcat initialized with port(s): 8080 (http)
+17/03/2023 23:00 --- INFO  --- o.a.catalina.core.StandardService.log --- Starting service [Tomcat]
+17/03/2023 23:00 --- INFO  --- o.a.catalina.core.StandardEngine.log --- Starting Servlet engine: [Apache Tomcat/9.0.71]
+17/03/2023 23:00 --- INFO  --- o.a.c.c.C.[Tomcat].[localhost].[/].log --- Initializing Spring embedded WebApplicationContext
+17/03/2023 23:00 --- INFO  --- o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext --- Root WebApplicationContext: initialization completed in 101 ms
+17/03/2023 23:00 --- INFO  --- o.s.b.d.a.OptionalLiveReloadServer.startServer --- LiveReload server is running on port 35729
+17/03/2023 23:00 --- INFO  --- o.s.b.w.e.tomcat.TomcatWebServer.start --- Tomcat started on port(s): 8080 (http) with context path ''
+17/03/2023 23:00 --- INFO  --- com.prototype.ManagerLogsApplication.logStarted --- Started ManagerLogsApplication in 0.185 seconds (JVM running for 183.533)
+17/03/2023 23:00 --- INFO  --- o.a.c.c.C.[Tomcat].[localhost].[/].log --- Initializing Spring DispatcherServlet 'dispatcherServlet'
+17/03/2023 23:00 --- INFO  --- o.s.web.servlet.DispatcherServlet.initServletBean --- Initializing Servlet 'dispatcherServlet'
+17/03/2023 23:00 --- INFO  --- o.s.web.servlet.DispatcherServlet.initServletBean --- Completed initialization in 0 ms
+17/03/2023 23:00 --- ERROR --- com.prototype.util.FileUtil.readFile --- Index 1 out of bounds for length 1
