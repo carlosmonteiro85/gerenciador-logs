@@ -1,5 +1,5 @@
 # Gerenciador-logs
-Projeto consiste em disponibilizar um endpoint que promove um Gerenciador visual que lê o arquivo de log da aplicação, podendo ser Filtrado 
+Projeto consiste em disponibilizar um endpoint que promova um Gerenciador visual dos logs da aplicação, podendo ser Filtrado 
 pelos tipo : DEBUG, INFO, WARN, ERROR e FATAL. Permite também a realização do download e limpeza do arquivo.
 
 
